@@ -1,0 +1,18 @@
+.card {
+  background-color: var(--cor-card);
+  box-shadow: -3px 3px var(--cor-sombra-card-1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 0.5em;
+}
+
+.genre-card {
+  background-color: var(--cor-card-3);
+  box-shadow: -3px 3px var(--cor-sombra-card-1);
+  border-radius: 15px;
+  margin: 0 0.2em;
+}
