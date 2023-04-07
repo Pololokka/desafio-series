@@ -13,6 +13,6 @@
 .genre-card {
   background-color: var(--cor-card-3);
   box-shadow: -3px 3px var(--cor-sombra-card-1);
-  border-radius: 15px;
+  border-radius: 25px;
   margin: 0 0.2em;
 }

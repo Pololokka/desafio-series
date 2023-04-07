@@ -1,10 +1,25 @@
+import { useState } from "react";
 import "./Styles.css";
 
 const Card = ({ title, text, season, episodes, genre1, genre2, genre3 }) => {
+  const [showText, setShowText] = useState(false);
+
   return (
     <div className="card">
       <h2 className="subtitulo subtitulo-hover">{title}</h2>
-      <p className="texto">{text}</p>
+      <p className="texto">
+        {text.length > 150
+          ? showText
+            ? (text = text)
+            : (text = text.substring(0, 150) + "...")
+          : (text = text)}
+      </p>
+      <input
+        type="button"
+        value={showText ? "Mostrar Menos" : "Mostrar Mais"}
+        className="texto btn__geral"
+        onClick={() => setShowText(!showText)}
+      />
       <div>
         <span className="texto">{season}</span>
         <span className="texto">{episodes}</span>
