@@ -21,8 +21,8 @@ const Card = ({ title, text, season, episodes, genre1, genre2, genre3 }) => {
         onClick={() => setShowText(!showText)}
       />
       <div>
-        <span className="texto">{season}</span>
-        <span className="texto">{episodes}</span>
+        <span className="texto">Temporadas: {season}</span>
+        <span className="texto">Episódios: {episodes}</span>
       </div>
       <div>
         {genre1 !== undefined && (
