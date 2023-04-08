@@ -203,13 +203,20 @@ html {
   padding: 0.5em;
 }
 
-.App {
+.app__cards {
   padding: 2em;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
   gap: 2em 1em;
+}
+
+.inputs__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10em;
 }
 
 .titulo {
@@ -283,4 +290,5 @@ html {
   border: 4px solid var(--cor-borda);
   width: 50%;
   margin: 0.5em;
+  width: 100%;
 }
