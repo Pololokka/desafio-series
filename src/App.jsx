@@ -21,7 +21,19 @@ function App() {
   useEffect(() => {
     setArrayFiltered(
       Produtos.filter((element) => {
-        return element.name.includes(formFilter.name.toLocaleUpperCase());
+        return (
+          element.name.includes(formFilter.name.toLocaleUpperCase()) &&
+          element.genres.includes(formFilter.genre)
+        );
+        // if (element.name) {
+        //   console.log("nome");
+        //   return element.name.includes(formFilter.name.toLocaleUpperCase());
+        // }
+        // if (element.genres !== "") {
+        //   console.log("gênero");
+        //   return element.genres.includes(formFilter.genres);
+        // }
+        // console.log("final");
       })
     );
     console.log(formFilter);
