@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import Card from "./Components/Card/Index";
@@ -5,9 +6,34 @@ import Input from "./Components/Input/Index";
 
 import { Produtos } from "./Data/db";
 
+const initialForm = {
+  name: "",
+  genre: "",
+  seasons: "",
+  episodes: "",
+};
+let arrayFiltered = Produtos;
+
 function App() {
+  const [formFilter, setFormFilter] = useState(initialForm);
+  const [arrayFiltered, setArrayFiltered] = useState(Produtos);
+
+  useEffect(() => {
+    setArrayFiltered(
+      Produtos.filter((element) => {
+        return element.name.includes(formFilter.name.toLocaleUpperCase());
+      })
+    );
+    console.log(formFilter);
+  }, [formFilter]);
+
   const handleOnChange = (event) => {
-    console.log(event.target.value);
+    const name = event.target.name;
+    setFormFilter({ ...formFilter, [name]: event.target.value });
+  };
+
+  const filter = (event) => {
+    const name = event.target.name;
   };
 
   return (
@@ -18,13 +44,15 @@ function App() {
           <Input
             title="Nome"
             type="text"
-            name="title"
+            name="name"
+            formFilter={formFilter.name}
             handleOnChange={handleOnChange}
           />
           <Input
             title="Gênero"
             type="text"
             name="genre"
+            formFilter={formFilter.genre}
             handleOnChange={handleOnChange}
           />
         </div>
@@ -34,6 +62,7 @@ function App() {
             type="number"
             name="season"
             min={0}
+            formFilter={formFilter.season}
             handleOnChange={handleOnChange}
           />
           <Input
@@ -41,13 +70,14 @@ function App() {
             type="number"
             name="episodes"
             min={0}
+            formFilter={formFilter.episodes}
             handleOnChange={handleOnChange}
           />
         </div>
       </section>
 
       <section className="app__cards">
-        {Produtos.map((element) => {
+        {arrayFiltered.map((element) => {
           return (
             <Card
               key={element.id}
