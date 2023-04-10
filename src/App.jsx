@@ -34,10 +34,6 @@ function App() {
     setFormFilter({ ...formFilter, [name]: event.target.value });
   };
 
-  const filter = (event) => {
-    const name = event.target.name;
-  };
-
   return (
     <main>
       <section>
