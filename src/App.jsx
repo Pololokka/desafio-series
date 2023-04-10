@@ -12,30 +12,20 @@ const initialForm = {
   seasons: "",
   episodes: "",
 };
-let arrayFiltered = Produtos;
 
 function App() {
   const [formFilter, setFormFilter] = useState(initialForm);
   const [arrayFiltered, setArrayFiltered] = useState(Produtos);
 
   useEffect(() => {
-    setArrayFiltered(
-      Produtos.filter((element) => {
-        return (
-          element.name.includes(formFilter.name.toLocaleUpperCase()) &&
-          element.genres.includes(formFilter.genre)
-        );
-        // if (element.name) {
-        //   console.log("nome");
-        //   return element.name.includes(formFilter.name.toLocaleUpperCase());
-        // }
-        // if (element.genres !== "") {
-        //   console.log("gênero");
-        //   return element.genres.includes(formFilter.genres);
-        // }
-        // console.log("final");
-      })
-    );
+    const arrayZaq = Produtos.filter((element) => {
+      return (
+        element.name.includes(formFilter.name.toLocaleUpperCase()) ||
+        element.genres.includes(formFilter.genre)
+      );
+    });
+
+    setArrayFiltered(arrayZaq);
     console.log(formFilter);
   }, [formFilter]);
 
@@ -89,7 +79,7 @@ function App() {
       </section>
 
       <section className="app__cards">
-        {arrayFiltered.map((element) => {
+        {arrayFiltered?.map((element) => {
           return (
             <Card
               key={element.id}
