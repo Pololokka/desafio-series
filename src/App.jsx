@@ -24,12 +24,7 @@ function App() {
 
   const handleOnChange = (event) => {
     const name = event.target.name;
-    const type = event.target.type;
-    setFormFilter({
-      ...formFilter,
-      [name]:
-        type == "number" ? parseInt(event.target.value) : event.target.value,
-    });
+    setFormFilter({ ...formFilter, [name]: event.target.value });
   };
 
   const textFilter = (atr, query) => {
@@ -47,8 +42,8 @@ function App() {
       (element) =>
         textFilter(element.name, formFilter.name) &&
         textFilter(element.genres, formFilter.genre) &&
-        numberFilter(element.seasons, formFilter.seasons) &&
-        numberFilter(element.episodes, formFilter.episodes)
+        numberFilter(element.episodes, formFilter.episodes) &&
+        numberFilter(element.seasons, formFilter.seasons)
     );
     console.log(arrayZaq);
 
@@ -79,10 +74,11 @@ function App() {
           <Input
             title="Número de Temporadas"
             type="number"
-            name="season"
+            name="seasons"
             min={0}
-            formFilter={formFilter.season}
+            formFilter={formFilter.seasons}
             handleOnChange={handleOnChange}
+            handleOnWheel={(e) => e.target.blur()}
           />
           <Input
             title="Número de Episódios"
@@ -91,6 +87,7 @@ function App() {
             min={0}
             formFilter={formFilter.episodes}
             handleOnChange={handleOnChange}
+            handleOnWheel={(e) => e.target.blur()}
           />
         </div>
       </section>

@@ -1,6 +1,14 @@
 import "./Styles.css";
 
-const Input = ({ title, type, name, min, formFilter, handleOnChange }) => {
+const Input = ({
+  title,
+  type,
+  name,
+  min,
+  formFilter,
+  handleOnChange,
+  handleOnWheel,
+}) => {
   return (
     <div className="comp-input__container">
       <label htmlFor={name} className="texto texto-hover">
@@ -13,6 +21,7 @@ const Input = ({ title, type, name, min, formFilter, handleOnChange }) => {
         value={formFilter || ""}
         className="texto input__geral"
         onChange={handleOnChange}
+        onWheel={handleOnWheel}
       />
     </div>
   );
