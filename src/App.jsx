@@ -18,20 +18,41 @@ function App() {
   const [arrayFiltered, setArrayFiltered] = useState(Produtos);
 
   useEffect(() => {
-    const arrayZaq = Produtos.filter((element) => {
-      return (
-        element.name.includes(formFilter.name.toLocaleUpperCase()) ||
-        element.genres.includes(formFilter.genre)
-      );
-    });
-
-    setArrayFiltered(arrayZaq);
+    filter();
     console.log(formFilter);
   }, [formFilter]);
 
   const handleOnChange = (event) => {
     const name = event.target.name;
-    setFormFilter({ ...formFilter, [name]: event.target.value });
+    const type = event.target.type;
+    setFormFilter({
+      ...formFilter,
+      [name]:
+        type == "number" ? parseInt(event.target.value) : event.target.value,
+    });
+  };
+
+  const textFilter = (atr, query) => {
+    const regex = new RegExp(query, "i");
+    return regex.test(atr);
+  };
+
+  const numberFilter = (atr, query) => {
+    const regex = new RegExp(query);
+    return regex.test(atr);
+  };
+
+  const filter = () => {
+    const arrayZaq = Produtos.filter(
+      (element) =>
+        textFilter(element.name, formFilter.name) &&
+        textFilter(element.genres, formFilter.genre) &&
+        numberFilter(element.seasons, formFilter.seasons) &&
+        numberFilter(element.episodes, formFilter.episodes)
+    );
+    console.log(arrayZaq);
+
+    setArrayFiltered(arrayZaq);
   };
 
   return (
