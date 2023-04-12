@@ -78,7 +78,7 @@ function App() {
             min={0}
             formFilter={formFilter.seasons}
             handleOnChange={handleOnChange}
-            handleOnWheel={(e) => e.target.blur()}
+            handleOnWheel={(event) => event.target.blur()}
           />
           <Input
             title="Número de Episódios"
@@ -87,9 +87,16 @@ function App() {
             min={0}
             formFilter={formFilter.episodes}
             handleOnChange={handleOnChange}
-            handleOnWheel={(e) => e.target.blur()}
+            handleOnWheel={(event) => event.target.blur()}
           />
         </div>
+
+        <input
+          type="button"
+          value="Limpar"
+          className="texto btn__geral"
+          onClick={() => setFormFilter(initialForm)}
+        />
       </section>
 
       <section className="app__cards">
