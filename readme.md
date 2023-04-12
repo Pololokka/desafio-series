@@ -15,7 +15,9 @@ Desafio de fazer uma aplicação onde são listadas séries, que podem ser filtr
 
 ### Home
 
-Página onde são listadas as séries. 4 campos de input aparecem para o usuário, e o mesmo pode digitar em qualquer quantidade de campos, a fim de realizar uma filtragem ampla ou específica de séries. Também há um botão de reset, para limpar os filtros.
+Página onde são listadas as séries.
+
+4 campos de input aparecem para o usuário, e o mesmo pode digitar em qualquer quantidade de campos, a fim de realizar uma filtragem ampla ou específica de séries. Também há um botão de reset, para limpar os filtros.
 
 ## Sobre
 
